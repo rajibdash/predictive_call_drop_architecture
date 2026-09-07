@@ -114,7 +114,7 @@ Static thresholding fails during rapid fading events. The ML engine must underst
 
 ## 4. RSRP Improvement Strategies: Multi-Perspective RAN Technology Approach
 
-**RSRP (Reference Signal Received Power)** directly correlates with link budget and cell coverage. Improving RSRP requires a multi-layered strategy spanning physical layer techniques, network architecture, and intelligent resource coordination.
+**RSRP (Reference Signal Received Power)** directly correlates with link budget and cell coverage. Improving RSRP requires a multi-layered strategy spanning physical layer techniques, network architecture, and AI-driven optimization.
 
 ### 4.1 Physical Layer Optimization (UE & Cell Perspective)
 
@@ -169,7 +169,7 @@ Static thresholding fails during rapid fading events. The ML engine must underst
 #### 4.2.2 Spectrum Sharing & Unlicensed Spectrum (LAA / NR-U)
 * **Licensed Assisted Access (LAA) / NR Unlicensed (NR-U):**
   - Augment licensed DL with unlicensed spectrum (5 GHz ISM band) carrier aggregation.
-  - **RSRP Benefit (Paradoxical):** Although unlicensed bands have higher path loss (higher frequencies), aggregating secondary CC on unlicensed spectrum offloads licensed DL traffic, reducing congestion-induced RSRP degradation on licensed PCC.
+  - **RSRP Benefit (Paradoxical):** Although unlicensed bands have higher path loss (higher frequencies), aggregating secondary CC on unlicensed spectrum offloads licensed DL traffic, reducing congestion and improving overall quality.
   - **Net Effect:** Licensed PCC RSRP remains stable or improves due to reduced interference.
 
 #### 4.2.3 Dynamic Spectrum Sharing (DSS)
@@ -286,9 +286,9 @@ Static thresholding fails during rapid fading events. The ML engine must underst
 └────────────────────────────┴────────────────────────────┘
 ```
 
-* **Continuous Deployment (CD):** Compile trained models into highly optimized edge runtimes using **ONNX Runtime** or **TensorRT** to keep inference execution sub-millisecond. Deploy containers via automated Kubernetes/K3s orchestrators to the edge locations.
-* **Drift Detection Engine:** Monitor inbound RSRP distributions using statistical tests (e.g., *Kolmogorov-Smirnov test* or *Population Stability Index*). Seasonal foliage changes, new physical obstacles, or shifting cell loads trigger automated central retraining workflows.
-* **Shadow Deployment Strategy:** Route real-world telemetry concurrently to a "Shadow Model" alongside the active legacy policy. Evaluate real-time precision and recall metrics safely before promoting the model to production control.
+* **Continuous Deployment (CD):** Compile trained models into highly optimized edge runtimes using **ONNX Runtime** or **TensorRT** to keep inference execution sub-millisecond. Deploy containers via a GitOps pipeline.
+* **Drift Detection Engine:** Monitor inbound RSRP distributions using statistical tests (e.g., *Kolmogorov-Smirnov test* or *Population Stability Index*). Seasonal foliage changes, new physical obstacles, and traffic pattern shifts should trigger retraining.
+* **Shadow Deployment Strategy:** Route real-world telemetry concurrently to a "Shadow Model" alongside the active legacy policy. Evaluate real-time precision and recall metrics safely before promoting the new model.
 
 ---
 
@@ -297,7 +297,7 @@ Static thresholding fails during rapid fading events. The ML engine must underst
 Once the xApp flags a high probability of an imminent call drop, it bypasses standard slow-loop measurement report cycles to execute immediate closed-loop network interventions:
 
 1. **Blind Handover Execution:** Force an immediate handover to a pre-calculated macro cell or an adjacent frequency band without waiting for standard A3 event timers to expire.
-2. **Dynamic Beamforming Optimization:** Instruct massive MIMO antennas to adjust weight vectors instantly, focusing a narrower, higher-gain beam directly toward the struggling User Equipment (UE) coordinate space.
+2. **Dynamic Beamforming Optimization:** Instruct massive MIMO antennas to adjust weight vectors instantly, focusing a narrower, higher-gain beam directly toward the struggling User Equipment (UE) connection.
 3. **Aggressive MCS Downshifting:** Rapidly lower the Modulation and Coding Scheme (MCS) to prefer link robustness and error correction over raw packet throughput, maintaining the active session.
 
 ---
