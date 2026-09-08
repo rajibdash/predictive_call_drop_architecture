@@ -15,6 +15,18 @@ To handle high-velocity Radio Frequency (RF) telemetry without overloading the c
   RSRP/SINR logs          Time-Series Model             Model Registry & Drift
 ```
 
+```
+[ RAN / Cell Towers ] ---> (Streaming Telemetry: RSRP/SINR) ---> [ Near-RT RIC / Edge Node ]
+                                                                        |
+                                         +------------------------------+
+                                         | (Real-time Inference)
+                                         v
+                            [ Predictive ML Model ]
+                                         | (Drop Risk Score > Threshold)
+                                         v
+                        [ Proactive Handover Execution (L3 HO /CHO /LTM HO) ] ---> [ Target/Candidate Cell ]
+```
+
 ### Near-Real-Time (Near-RT) Edge Layer
 * **Deployment Location:** Embedded inside the **Near-RT RIC (RAN Intelligent Controller)** as an **xApp**, or hosted directly on a Multi-access Edge Computing (MEC) node.
 * **Data Ingestion:** Streams Layer 1/Layer 2 radio measurements via high-throughput, low-latency brokers like **Apache Kafka** or **Redpanda**.
